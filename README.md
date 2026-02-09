@@ -27,6 +27,7 @@
       background: rgba(255, 255, 255, 0.08);
       box-shadow: 0 0 25px rgba(255, 182, 193, 0.4);
       backdrop-filter: blur(8px);
+      z-index: 2;
     }
 
     h1 {
@@ -71,16 +72,33 @@
       height: 2px;
       background: white;
       animation: twinkle 2s infinite alternate;
+      z-index: 1;
     }
 
     @keyframes twinkle {
       from { opacity: 0.3; }
       to { opacity: 1; }
     }
+
+    /* Video oculto */
+    iframe {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+      pointer-events: none;
+    }
   </style>
 </head>
 
 <body>
+
+  <!-- 🎶 Música de fondo: All The Stars -->
+  <iframe 
+    src="https://www.youtube.com/embed/JQbjS0_ZfJ0?autoplay=1&loop=1&playlist=JQbjS0_ZfJ0"
+    frameborder="0"
+    allow="autoplay">
+  </iframe>
 
   <div class="container">
     <h1>Visne meus Valentinus esse? 💘</h1>
@@ -97,7 +115,7 @@
   </div>
 
   <script>
-    // Estrellitas decorativas
+    // ⭐ Estrellitas decorativas
     for (let i = 0; i < 70; i++) {
       let star = document.createElement("div");
       star.className = "stars";
@@ -107,7 +125,7 @@
       document.body.appendChild(star);
     }
 
-    // Contador de clics
+    // 💘 Contador de clics
     let intentos = 0;
 
     function clicSi() {

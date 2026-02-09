@@ -1,161 +1,126 @@
-# Visne-meus-Valentinus-esse
-<!DOCTYPE html>
+# Visne-meus-Valentinus-ess      heart.style.top = y + "px";
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Para Jimena 💖</title>
+  <title>Para Jimena 🌌💘</title>
 
   <style>
     body {
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom, #ffdde1, #ee9ca7);
+      height: 100vh;
+      background: radial-gradient(circle at top, #1b2735, #090a0f);
+      font-family: "Georgia", serif;
+      overflow: hidden;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      overflow: hidden;
+      color: white;
       text-align: center;
     }
 
-    .card {
-      background: white;
-      padding: 30px;
-      border-radius: 25px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.2);
-      max-width: 350px;
-      position: relative;
-      z-index: 2;
+    .container {
+      max-width: 90%;
+      padding: 35px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 0 25px rgba(255, 182, 193, 0.4);
+      backdrop-filter: blur(8px);
     }
 
     h1 {
       font-size: 2em;
-      color: #e6005c;
-      margin-bottom: 10px;
-    }
-
-    p {
-      font-size: 1.2em;
-      color: #333;
-    }
-
-    .love-text {
-      font-size: 1.3em;
-      font-weight: bold;
-      color: #ff2e75;
-      margin-top: 15px;
+      margin-bottom: 20px;
+      color: #ffb6c1;
     }
 
     button {
-      margin: 15px;
-      padding: 12px 25px;
+      padding: 15px 35px;
+      font-size: 1.3em;
       border: none;
-      border-radius: 20px;
-      font-size: 1.1em;
+      border-radius: 40px;
       cursor: pointer;
+      background: #ff69b4;
+      color: white;
       transition: 0.3s;
+      box-shadow: 0 0 15px rgba(255, 105, 180, 0.6);
     }
 
-    #yesBtn {
-      background: #ff4d88;
+    button:hover {
+      transform: scale(1.1);
+    }
+
+    #mensajeFinal {
+      margin-top: 25px;
+      font-size: 1.2em;
+      line-height: 1.6;
       color: white;
+      display: none;
     }
 
-    #yesBtn:hover {
-      background: #e6005c;
+    #amor {
+      font-size: 1.6em;
+      color: #ffb6c1;
+      margin-bottom: 10px;
     }
 
-    #noBtn {
-      background: #555;
-      color: white;
+    .stars {
       position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      bottom: -65px;
+      width: 2px;
+      height: 2px;
+      background: white;
+      animation: twinkle 2s infinite alternate;
     }
 
-    .heart {
-      position: absolute;
-      font-size: 3em;
-      transition: 0.3s;
-      z-index: 1;
-    }
-
-    a.song-btn {
-      display: inline-block;
-      background: #ff4d88;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 20px;
-      text-decoration: none;
-      font-size: 1.1em;
-      font-weight: bold;
-      margin-top: 15px;
-    }
-
-    a.song-btn:hover {
-      background: #e6005c;
+    @keyframes twinkle {
+      from { opacity: 0.3; }
+      to { opacity: 1; }
     }
   </style>
 </head>
 
 <body>
 
-  <div class="card">
-    <h1>Jimena 💖</h1>
+  <div class="container">
+    <h1>Visne meus Valentinus esse? 💘</h1>
 
-    <p>¿Quieres ser mi San Valentín? 🌹</p>
+    <button onclick="clicSi()">Sí</button>
 
-    <p class="love-text">Te amo mucho Jimena ❤️</p>
-
-    <!-- Botón para abrir canción -->
-    <p>🎶 Nuestra canción:</p>
-
-    <a class="song-btn"
-      href="https://youtu.be/GfCqMv--ncA?si=QCObzg-9hcDQMke3"
-      target="_blank">
-      ▶ Escuchar All The Stars 💖
-    </a>
-
-    <br><br>
-
-    <button id="yesBtn">Sí 💘</button>
-    <button id="noBtn">No 💔</button>
+    <div id="mensajeFinal">
+      <div id="amor">Te amo mucho Jimena 🌌💖</div>
+      <div>
+        “En este pequeño universo infinito…  
+        siempre termino encontrándote a ti.”
+      </div>
+    </div>
   </div>
 
-  <!-- Corazón que se mueve -->
-  <div class="heart" id="heart">❤️</div>
-
   <script>
-    const noBtn = document.getElementById("noBtn");
-    const heart = document.getElementById("heart");
-    const yesBtn = document.getElementById("yesBtn");
+    // Estrellitas decorativas
+    for (let i = 0; i < 70; i++) {
+      let star = document.createElement("div");
+      star.className = "stars";
+      star.style.top = Math.random() * 100 + "vh";
+      star.style.left = Math.random() * 100 + "vw";
+      star.style.animationDuration = (Math.random() * 2 + 1) + "s";
+      document.body.appendChild(star);
+    }
 
-    // Cuando presione NO → el corazón se mueve por la pantalla
-    noBtn.addEventListener("click", () => {
-      const x = Math.random() * (window.innerWidth - 60);
-      const y = Math.random() * (window.innerHeight - 60);
+    // Contador de clics
+    let intentos = 0;
 
-      heart.style.left = x + "px";
-      heart.style.top = y + "px";
-    });
+    function clicSi() {
+      intentos++;
 
-    // Cuando presione SÍ → mensaje final romántico
-    yesBtn.addEventListener("click", () => {
-      document.body.innerHTML = `
-        <div style="
-          color:white;
-          font-size:2.5em;
-          text-align:center;
-          padding:30px;
-        ">
-          🌹 Sabía que dirías que sí 😭💖<br><br>
-          Te amo muchísimo Jimena ❤️✨
-        </div>
-      `;
-    });
+      if (intentos < 4) {
+        alert("💘 Tocaste 'Sí' (" + intentos + "/4)");
+      }
+
+      if (intentos === 4) {
+        document.getElementById("mensajeFinal").style.display = "block";
+      }
+    }
   </script>
 
 </body>

@@ -1,4 +1,4 @@
-#Visne-meus-Valentinus-ess(⁠ ⁠◜⁠‿⁠◝⁠ ⁠)⁠♡
+#Visne-meus-Valentinus-ess(⁠ ⁠◜⁠‿⁠◝⁠ )   
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -52,6 +52,13 @@
       transform: scale(1.1);
     }
 
+    #textoPregunta {
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: #fff;
+      min-height: 60px;
+    }
+
     #mensajeFinal {
       margin-top: 25px;
       font-size: 1.2em;
@@ -80,7 +87,7 @@
       to { opacity: 1; }
     }
 
-    /* Video oculto */
+    /* Video oculto para música */
     iframe {
       position: absolute;
       width: 1px;
@@ -105,6 +112,10 @@
 
     <button onclick="clicSi()">Sí</button>
 
+    <!-- Preguntas que van apareciendo -->
+    <div id="textoPregunta"></div>
+
+    <!-- Mensaje final -->
     <div id="mensajeFinal">
       <div id="amor">Te amo mucho Jimena 🌌💖</div>
       <div>
@@ -125,15 +136,23 @@
       document.body.appendChild(star);
     }
 
-    // 💘 Contador de clics
+    // 💘 Preguntas importantes de la relación
+    const preguntas = [
+      "¿Qué sentiste la primera vez que nos besamos? 💖",
+      "¿Cuál ha sido tu momento favorito conmigo, Jimena? 🌹",
+      "¿Sabes cuánto agradezco tenerte en mi vida? ✨",
+      "¿Te gustaría seguir escribiendo nuestra historia juntos? 🌌"
+    ];
+
     let intentos = 0;
 
     function clicSi() {
-      intentos++;
-
-      if (intentos < 4) {
-        alert("💘 Tocaste 'Sí' (" + intentos + "/4)");
+      if (intentos < preguntas.length) {
+        document.getElementById("textoPregunta").innerHTML =
+          "💌 " + preguntas[intentos];
       }
+
+      intentos++;
 
       if (intentos === 4) {
         document.getElementById("mensajeFinal").style.display = "block";
